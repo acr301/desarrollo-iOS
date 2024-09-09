@@ -8,41 +8,63 @@
 import Foundation
 import UIKit
 
+
 class BottomView: UIView {
 
-    // MARK: - UI Elements
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 40, height: 80)
+        layout.minimumLineSpacing = 10
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(CancionCollectionViewCell.self, forCellWithReuseIdentifier: "cancionCell")
         collectionView.backgroundColor = .white
         return collectionView
     }()
 
-    // MARK: - Initializers
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
-        setupConstraints()
+        setupCollectionView()
+        backgroundColor = .clear
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Setup Functions
-    private func setupView() {
+    private func setupCollectionView() {
         addSubview(collectionView)
-        collectionView.register(SongCollectionViewCell.self, forCellWithReuseIdentifier: "SongCell")
-    }
+        collectionView.dataSource = self
+        collectionView.delegate = self
 
-    private func setupConstraints() {
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
+
+// MARK: - UICollectionViewDataSource & UICollectionViewDelegate
+extension BottomView: UICollectionViewDataSource, UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cellModelo.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cancionCell", for: indexPath) as! CancionCollectionViewCell
+        
+        let model = cellModelo[indexPath.item]
+        cell.configure(with: model)
+        
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected item at \(indexPath.item)")
+    }
+}
+

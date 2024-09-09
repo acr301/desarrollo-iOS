@@ -10,12 +10,14 @@ import UIKit
 
 class TareaViewController: UIViewController {
     
-    private let topView = UIView()
-    private let bottomView = UIView()
+    private let topView = TopView()
+    private let bottomView = BottomView()
     
+    /*
     private let perfilFotoView = UIImageView()
     private let nombreLabel = UILabel()
     private let descripcionLabel = UILabel()
+     */
     
 
     override func viewDidLoad() {
@@ -30,6 +32,8 @@ class TareaViewController: UIViewController {
     
     private func setupViews() {
         view.addSubview(topView)
+        topView.backgroundColor = UIColor(red: 0xCC/255, green: 0x5D/255, blue: 0x4C/255, alpha: 1.0)
+
         view.addSubview(bottomView)
         
         view.backgroundColor = .white

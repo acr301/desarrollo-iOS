@@ -10,10 +10,12 @@ import UIKit
 
 class TopView: UIView {
     
+    
+    
     // MARK: - UI Elements
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "profile")
+        imageView.image = UIImage(named: "imagenPerfil")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 50
         imageView.layer.masksToBounds = true
