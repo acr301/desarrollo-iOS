@@ -2,15 +2,10 @@
 //  TopView.swift
 //  refactorizandoUIUX
 //
-//  Created by user263366 on 9/9/24.
-//
 
-import Foundation
 import UIKit
 
 class TopView: UIView {
-    
-    
     
     // MARK: - UI Elements
     private let profileImageView: UIImageView = {
@@ -25,6 +20,7 @@ class TopView: UIView {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Laura Kalbag"
+        label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 24)
         label.textAlignment = .center
         return label
@@ -33,25 +29,26 @@ class TopView: UIView {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "Love the way music makes me feel"
+        label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 16)
         label.textAlignment = .center
-        label.textColor = .gray
         return label
     }()
     
     private let iconoMusica = BuildHelper.crearStatImageView(from: "music.note")
-    private let numeroMusica: UILabel = BuildHelper.crearStatLabel(with: "127")
+    private let numeroMusica = BuildHelper.crearStatLabel(with: "127")
     
     private let iconoGente = BuildHelper.crearStatImageView(from: "person.2.fill")
-    private let numeroGente: UILabel = BuildHelper.crearStatLabel(with: "2261")
+    private let numeroGente = BuildHelper.crearStatLabel(with: "2261")
     
     private let iconoCorazon = BuildHelper.crearStatImageView(from: "heart.fill")
-    private let numeroCorazon: UILabel = BuildHelper.crearStatLabel(with: "5531")
+    private let numeroCorazon = BuildHelper.crearStatLabel(with: "5531")
     
     private lazy var statsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [iconoMusica, iconoGente, iconoCorazon])
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
+        let musicStack = BuildHelper.crearHStatStackView(with: iconoMusica, and: numeroMusica)
+        let peopleStack = BuildHelper.crearHStatStackView(with: iconoGente, and: numeroGente)
+        let heartStack = BuildHelper.crearHStatStackView(with: iconoCorazon, and: numeroCorazon)
+        let stackView = BuildHelper.createHorizontalStackView(with: [musicStack, peopleStack, heartStack])
         return stackView
     }()
     
@@ -110,3 +107,4 @@ class TopView: UIView {
         ])
     }
 }
+

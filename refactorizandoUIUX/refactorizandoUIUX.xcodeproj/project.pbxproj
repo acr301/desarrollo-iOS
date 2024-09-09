@@ -12,6 +12,7 @@
 		EE82AC062C8F1B9A0051FAA4 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82AC052C8F1B9A0051FAA4 /* TopView.swift */; };
 		EE82AC082C8F1BA60051FAA4 /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82AC072C8F1BA60051FAA4 /* BottomView.swift */; };
 		EE82AC0B2C8F1C390051FAA4 /* CancionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE82AC0A2C8F1C390051FAA4 /* CancionCollectionViewCell.swift */; };
+		EEB6FCF92C8FB2DA00FBD9A9 /* HeartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB6FCF82C8FB2DA00FBD9A9 /* HeartController.swift */; };
 		EEBC4CB52C8E92E400CB6693 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4CB42C8E92E400CB6693 /* AppDelegate.swift */; };
 		EEBC4CB72C8E92E400CB6693 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4CB62C8E92E400CB6693 /* SceneDelegate.swift */; };
 		EEBC4CB92C8E92E400CB6693 /* PrimeraPantalla.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4CB82C8E92E400CB6693 /* PrimeraPantalla.swift */; };
@@ -26,6 +27,7 @@
 		EE82AC052C8F1B9A0051FAA4 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		EE82AC072C8F1BA60051FAA4 /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
 		EE82AC0A2C8F1C390051FAA4 /* CancionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancionCollectionViewCell.swift; sourceTree = "<group>"; };
+		EEB6FCF82C8FB2DA00FBD9A9 /* HeartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartController.swift; sourceTree = "<group>"; };
 		EEBC4CB12C8E92E400CB6693 /* refactorizandoUIUX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = refactorizandoUIUX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEBC4CB42C8E92E400CB6693 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEBC4CB62C8E92E400CB6693 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 		EEBC4CCB2C8E9A2700CB6693 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EEB6FCF82C8FB2DA00FBD9A9 /* HeartController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				EE82AC0B2C8F1C390051FAA4 /* CancionCollectionViewCell.swift in Sources */,
 				EEBC4CCE2C8EA23100CB6693 /* TareaViewController.swift in Sources */,
 				EEBC4CB92C8E92E400CB6693 /* PrimeraPantalla.swift in Sources */,
+				EEB6FCF92C8FB2DA00FBD9A9 /* HeartController.swift in Sources */,
 				EE82AC082C8F1BA60051FAA4 /* BottomView.swift in Sources */,
 				EE51032C2C8F123F00064815 /* BuildHelper.swift in Sources */,
 				EE51032A2C8F10B900064815 /* structModelo.swift in Sources */,
