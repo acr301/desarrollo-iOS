@@ -71,15 +71,37 @@ class TopView: UIView {
         addSubview(statsStackView)
     }
     
+    private lazy var heartStack: UIStackView = {
+        let heartImageView = BuildHelper.crearStatImageView(from: "heart.fill")
+        heartImageView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleHeartTap))
+        heartImageView.addGestureRecognizer(tapGesture)
+        
+        let label = BuildHelper.crearStatLabel(with: "\(HeartController.shared.heartCount)")
+        let stackView = BuildHelper.crearHStatStackView(with: heartImageView, and: label)
+        return stackView
+    }()
+
+    @objc private func handleHeartTap() {
+        let newCount = HeartController.shared.increaseHeartCount()
+        // Find and update the label in the heartStack
+        if let heartLabel = heartStack.arrangedSubviews.compactMap({ $0 as? UILabel }).first {
+            heartLabel.text = "\(newCount)"
+        }
+    }
+
+    
     private func setupConstraints() {
         // Profile Image Constraints
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             profileImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
             profileImageView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            profileImageView.widthAnchor.constraint(equalToConstant: 100),
-            profileImageView.heightAnchor.constraint(equalToConstant: 100)
+            profileImageView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 4), // Dynamic sizing
+            profileImageView.heightAnchor.constraint(equalTo: profileImageView.widthAnchor), // Ensure the image remains square
+            profileImageView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -10) // Add some flexibility to bottom spacing
         ])
+
         
         // Name Label Constraints
         nameLabel.translatesAutoresizingMaskIntoConstraints = false

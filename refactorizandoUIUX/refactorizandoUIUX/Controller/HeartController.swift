@@ -10,7 +10,7 @@ import Foundation
 class HeartController {
     static let shared = HeartController()
     
-    private var heartCount = 5531
+    var heartCount = 5531
     
     private init() {} // Singleton pattern
     

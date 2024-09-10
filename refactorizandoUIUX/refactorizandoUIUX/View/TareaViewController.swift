@@ -47,7 +47,7 @@ class TareaViewController: UIViewController {
             topView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             topView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            topView.heightAnchor.constraint(equalToConstant: 400),
+            topView.heightAnchor.constraint(equalToConstant: 450),
             
             bottomView.topAnchor.constraint(equalTo: topView.bottomAnchor),
             bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

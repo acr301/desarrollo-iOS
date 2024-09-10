@@ -1,13 +1,5 @@
-//
-//  BottomView.swift
-//  refactorizandoUIUX
-//
-//  Created by user263366 on 9/9/24.
-//
-
 import Foundation
 import UIKit
-
 
 class BottomView: UIView {
 
@@ -42,9 +34,11 @@ class BottomView: UIView {
             collectionView.topAnchor.constraint(equalTo: topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),  // Ensure no other views limit this height
+            collectionView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 2)  // Give enough height
         ])
     }
+
 }
 
 // MARK: - UICollectionViewDataSource & UICollectionViewDelegate
